@@ -30,14 +30,14 @@ const Section = ({ title, subtitle, icon: Icon, children, id, className = "" }) 
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-4">
             {Icon && (
-              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.15)]">
+              <div className="p-3 bg-blue-50 rounded-xl text-blue-600 border border-blue-100 shadow-sm">
                 <Icon size={28} />
               </div>
             )}
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-serif tracking-tight">{title}</h2>
           </div>
           {subtitle && (
-            <p className="text-slate-400 max-w-2xl leading-relaxed text-lg ml-1 md:ml-[4.5rem]">
+            <p className="text-slate-600 max-w-2xl leading-relaxed text-lg ml-1 md:ml-[4.5rem]">
               {subtitle}
             </p>
           )}
@@ -49,5 +49,3 @@ const Section = ({ title, subtitle, icon: Icon, children, id, className = "" }) 
 };
 
 export default Section;
-
-
