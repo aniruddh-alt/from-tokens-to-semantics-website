@@ -11,19 +11,19 @@ const LayerDensityChart = () => {
     <div className="glass-card p-6 rounded-xl">
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold text-slate-100">Polytope Density Evolution</h3>
-          <p className="text-sm text-slate-400">Comparing High vs. Low Frequency n-gram density per layer</p>
+          <h3 className="text-lg font-semibold text-slate-900">Polytope Density Evolution</h3>
+          <p className="text-sm text-slate-500">Comparing High vs. Low Frequency n-gram density per layer</p>
         </div>
         
-        <div className="flex bg-slate-800/50 p-1 rounded-lg border border-white/5 self-start">
+        <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200 self-start">
           {layers.map((layer) => (
             <button
               key={layer}
               onClick={() => setActiveLayer(layer)}
               className={`px-4 py-2 rounded-md text-xs font-medium transition-all duration-300 ${
                 activeLayer === layer 
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' 
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-white text-blue-600 shadow-sm border border-slate-200' 
+                  : 'text-slate-500 hover:text-slate-700'
               }`}
             >
               Layer {layer} {layer === 0 ? '(Shallow)' : layer === 11 ? '(Deep)' : '(Mid)'}
@@ -35,30 +35,30 @@ const LayerDensityChart = () => {
       <div className="h-[350px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={layerDensityData[activeLayer]} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
             <XAxis 
               dataKey="step" 
-              stroke="#64748b" 
+              stroke="#94a3b8" 
               fontSize={12}
-              tick={{ fill: '#94a3b8' }}
+              tick={{ fill: '#64748b' }}
             />
             <YAxis 
-              stroke="#64748b" 
+              stroke="#94a3b8" 
               fontSize={12} 
-              label={{ value: 'Polytope Density (Lower is better)', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#94a3b8' } }} 
-              tick={{ fill: '#94a3b8' }}
+              label={{ value: 'Polytope Density (Lower is better)', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#64748b' } }} 
+              tick={{ fill: '#64748b' }}
             />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: 'rgba(15, 23, 42, 0.9)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.95)', 
                 borderRadius: '8px', 
-                border: '1px solid rgba(255,255,255,0.1)',
-                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.5)',
-                color: '#f1f5f9'
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                color: '#1e293b'
               }}
-              itemStyle={{ color: '#cbd5e1' }}
+              itemStyle={{ color: '#475569' }}
             />
-            <Legend verticalAlign="top" height={36} wrapperStyle={{ color: '#94a3b8' }} />
+            <Legend verticalAlign="top" height={36} wrapperStyle={{ color: '#64748b' }} />
             
             <Line 
               type="monotone" 
@@ -73,21 +73,21 @@ const LayerDensityChart = () => {
               type="monotone" 
               dataKey="low" 
               name="Low Frequency N-Grams" 
-              stroke="#ef4444" 
+              stroke="#f43f5e" 
               strokeWidth={3} 
-              activeDot={{ r: 8, fill: '#ef4444' }} 
+              activeDot={{ r: 8, fill: '#f43f5e' }} 
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
       
-      <div className="mt-4 bg-indigo-950/30 p-4 rounded-lg border border-indigo-500/20 text-sm text-slate-300">
+      <div className="mt-4 bg-blue-50 p-4 rounded-lg border border-blue-100 text-sm text-slate-600">
         <div className="flex gap-3 items-start">
-          <Activity size={18} className="text-indigo-400 mt-0.5 flex-shrink-0" />
+          <Activity size={18} className="text-blue-500 mt-0.5 flex-shrink-0" />
           <p className="leading-relaxed">
-            {activeLayer === 0 && <strong className="text-indigo-300 block mb-1">Layer 0 (Shallow) Analysis</strong>}
-            {activeLayer === 4 && <strong className="text-indigo-300 block mb-1">Layer 4 (Middle) Analysis</strong>}
-            {activeLayer === 11 && <strong className="text-indigo-300 block mb-1">Layer 11 (Deep) Analysis</strong>}
+            {activeLayer === 0 && <strong className="text-blue-700 block mb-1">Layer 0 (Shallow) Analysis</strong>}
+            {activeLayer === 4 && <strong className="text-blue-700 block mb-1">Layer 4 (Middle) Analysis</strong>}
+            {activeLayer === 11 && <strong className="text-blue-700 block mb-1">Layer 11 (Deep) Analysis</strong>}
             
             {activeLayer === 0 
               ? "Notice how the red line (Low Freq) stays significantly higher than the blue line. This means low-frequency phrases remain fragmented and 'expensive' to represent in early layers."
@@ -103,5 +103,3 @@ const LayerDensityChart = () => {
 };
 
 export default LayerDensityChart;
-
-
