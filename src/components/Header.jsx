@@ -42,8 +42,8 @@ const Header = () => {
           
           <div className="flex flex-wrap gap-6 text-sm text-slate-500 mb-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <div className="flex flex-wrap gap-x-1 items-center">
-              <span className="font-medium text-slate-700">Sharvil Limaye*, Aniruddhan Ramesh*, Aiden Zhou*,</span>
-              <span>Akshay Bhaskar, Jonas Rohweder, Ashwinee Panda, Vasu Sharma</span>
+              <span className="font-medium text-slate-700">Sharvil Limaye*, Aniruddhan Ramesh*, Aiden Zhou*, Akshay Bhaskar, Jonas Rohweder</span>
+              <span>Ashwinee Panda, Vasu Sharma</span>
             </div>
             <div className="w-full text-xs text-slate-400 mt-1">* Equal contribution</div>
           </div>
